@@ -1,13 +1,28 @@
 {
-  "name": "sds",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@laurelma/sds",
+  "version": "0.1.0",
+  "description": "Simple Design System — a React component library with Figma integration",
   "type": "module",
+  "main": "./dist/lib/sds.cjs",
+  "module": "./dist/lib/sds.mjs",
+  "types": "./dist/lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/lib/index.d.ts",
+      "import": "./dist/lib/sds.mjs",
+      "require": "./dist/lib/sds.cjs"
+    },
+    "./dist/lib/sds.css": "./dist/lib/sds.css"
+  },
+  "files": [
+    "dist/lib"
+  ],
   "scripts": {
     "app:dev": "vite",
     "app:build": "tsc && vite build",
     "app:lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "app:preview": "vite preview",
+    "build:lib": "vite build --config vite.lib.config.ts",
     "storybook": "storybook dev -p 6006 --no-open",
     "storybook:build": "storybook build --output-dir dist/storybook",
     "build": "npm run app:build; npm run storybook:build",
@@ -17,10 +32,18 @@
     "script:tokens": "cd scripts/tokens; node --env-file=../../.env app.mjs --skip-rest-api; cd -;",
     "script:tokens:rest": "cd scripts/tokens; node --env-file=../../.env app.mjs; cd -;"
   },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-aria-components": "^1.0.0",
+    "react-dom": "^18.0.0"
+  },
   "prettier": {
     "plugins": [
       "prettier-plugin-organize-imports"
     ]
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
   },
   "devDependencies": {
     "@figma/code-connect": "^1.3.10",
@@ -39,7 +62,6 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
-    "clsx": "^2.1.1",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
@@ -50,6 +72,7 @@
     "react-dom": "^18.2.0",
     "storybook": "^8.6.12",
     "typescript": "^5.0.2",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4"
   }
 }
