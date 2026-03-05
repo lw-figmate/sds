@@ -2,13 +2,13 @@ import { Avatar, Tag } from "primitives";
 import { Flex } from "layout";
 import "./AccessReviewCard.css";
 
-// Note: Logo images sourced from Figma MCP assets (valid for 7 days from March 4, 2026)
+// Note: Logo images sourced from Figma MCP assets (valid for 7 days from March 5, 2026)
 const notionLogo =
-  "https://www.figma.com/api/mcp/asset/87c7f59a-cbc2-4e33-9a10-4f7734768505";
+  "http://localhost:3845/assets/4fddc33f181888a878450987b9957b188aa3a610.png";
 const onePasswordLogo =
-  "https://www.figma.com/api/mcp/asset/88399f02-35d4-42f3-8949-dcdba91a878d";
+  "http://localhost:3845/assets/dae22c62a092373dbcc4fe73c5a327929ad124c1.png";
 const zoominfoLogo =
-  "https://www.figma.com/api/mcp/asset/e9c33968-5435-4c40-a031-48eab97abfbd";
+  "http://localhost:3845/assets/402516f1346b0071e025166ab222f173fef27b9d.png";
 
 type ReviewRow = {
   id: number;
