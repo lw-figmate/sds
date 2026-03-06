@@ -1,6 +1,7 @@
 export * from "./Accordion/Accordion";
 export * from "./Avatar/Avatar";
 export * from "./Button/Button";
+export * from "./Calendar/Calendar";
 export * from "./Checkbox/Checkbox";
 export * from "./Dialog/Dialog";
 export * from "./Fieldset/Fieldset";

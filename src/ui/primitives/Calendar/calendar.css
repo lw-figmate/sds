@@ -1,0 +1,108 @@
+.calendar {
+  --calendar-background: var(--sds-color-background-default-default);
+  --calendar-border-color: var(--sds-color-border-default-default);
+  --calendar-border-radius: var(--sds-size-radius-400);
+  background: var(--calendar-background);
+  border-radius: var(--calendar-border-radius);
+  box-shadow: inset 0 0 0 var(--sds-size-stroke-border)
+    var(--calendar-border-color);
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-400);
+  padding: var(--sds-size-space-400);
+  width: fit-content;
+
+  &[data-disabled] {
+    opacity: 0.5;
+  }
+}
+
+.calendar-header {
+  align-items: center;
+  display: flex;
+  gap: var(--sds-size-space-200);
+  justify-content: space-between;
+}
+
+.calendar-heading {
+  color: var(--sds-color-text-default-default);
+  flex: 1;
+  font: var(--sds-font-body-base-strong);
+  text-align: center;
+}
+
+.calendar-grid {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.calendar-grid-header {
+}
+
+.calendar-header-cell {
+  color: var(--sds-color-text-default-tertiary);
+  font: var(--sds-font-body-small);
+  padding-block-end: var(--sds-size-space-200);
+  text-align: center;
+  width: var(--sds-size-space-1200);
+}
+
+.calendar-grid-body {
+}
+
+.calendar-cell {
+  --cell-background: transparent;
+  --cell-color: var(--sds-color-text-default-default);
+  --cell-border-radius: var(--sds-size-radius-full);
+
+  background: var(--cell-background);
+  border-radius: var(--cell-border-radius);
+  color: var(--cell-color);
+  cursor: pointer;
+  font: var(--sds-font-body-small);
+  outline: none;
+  padding: var(--sds-size-space-200);
+  text-align: center;
+  width: var(--sds-size-space-1200);
+
+  &[data-outside-month] {
+    --cell-color: var(--sds-color-text-default-tertiary);
+  }
+
+  &[data-today] {
+    --cell-color: var(--sds-color-text-brand-default);
+    font: var(--sds-font-body-small-strong);
+  }
+
+  &[data-hovered]:not([data-selected]):not([data-disabled]) {
+    --cell-background: var(--sds-color-background-default-secondary);
+  }
+
+  &[data-focus-visible] {
+    outline: var(--sds-size-stroke-focus) solid
+      var(--sds-color-border-brand-secondary);
+    outline-offset: var(--sds-size-stroke-border);
+  }
+
+  &[data-selected] {
+    --cell-background: var(--sds-color-background-brand-default);
+    --cell-color: var(--sds-color-text-on-brand-default);
+    --cell-border-radius: var(--sds-size-radius-full);
+  }
+
+  &[data-selection-start],
+  &[data-selection-end] {
+    --cell-background: var(--sds-color-background-brand-default);
+    --cell-color: var(--sds-color-text-on-brand-default);
+    --cell-border-radius: var(--sds-size-radius-full);
+  }
+
+  &[data-invalid] {
+    --cell-color: var(--sds-color-text-danger-default);
+  }
+
+  &[data-disabled] {
+    --cell-color: var(--sds-color-text-disabled-default);
+    cursor: not-allowed;
+  }
+}
